@@ -129,15 +129,28 @@ export const generateDataPdfReport = async (
     doc.setFont(selectedFont);
   }
 
-  // Pre-load hero SVG icon → PNG via canvas (falls back to native circle shape)
+  // Pre-load hero SVG icon as base64 data URI for jsPDF
+  // Using fetch → base64 avoids the tainted-canvas CORS issue that occurs
+  // when drawing a same-origin SVG via new Image() + canvas.toDataURL()
   let heroIconPngUrl: string | null = null;
   try {
-    const img = await loadImage(`${import.meta.env.BASE_URL}assets/cep-50%-hero-stat-icon.svg`, 2000);
-    if (img) {
-      const canvas = document.createElement('canvas');
-      canvas.width = 120; canvas.height = 120;
-      const ctx = canvas.getContext('2d');
-      if (ctx) { ctx.drawImage(img, 0, 0, 120, 120); heroIconPngUrl = canvas.toDataURL('image/png'); }
+    const svgUrl = `${import.meta.env.BASE_URL}assets/cep-50%-hero-stat-icon.svg`;
+    const res = await fetch(svgUrl);
+    if (res.ok) {
+      const svgText = await res.text();
+      const svgBase64 = btoa(unescape(encodeURIComponent(svgText)));
+      const dataUri = `data:image/svg+xml;base64,${svgBase64}`;
+      // Draw onto canvas to get a PNG data URL that jsPDF can use
+      const img = await loadImage(dataUri, 3000);
+      if (img) {
+        const canvas = document.createElement('canvas');
+        canvas.width = 120; canvas.height = 120;
+        const ctx = canvas.getContext('2d');
+        if (ctx) {
+          ctx.drawImage(img, 0, 0, 120, 120);
+          heroIconPngUrl = canvas.toDataURL('image/png');
+        }
+      }
     }
   } catch (e) {
     console.warn('[PDF] Could not load hero SVG, using shape fallback', e);
