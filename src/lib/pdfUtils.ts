@@ -129,18 +129,21 @@ export const generateDataPdfReport = async (
     doc.setFont(selectedFont);
   }
 
-  // Pre-load hero SVG icon as base64 data URI for jsPDF
-  // Using fetch → base64 avoids the tainted-canvas CORS issue that occurs
-  // when drawing a same-origin SVG via new Image() + canvas.toDataURL()
+  // Pre-load hero SVG icon as a white PNG for embedding in jsPDF.
+  // The SVG uses fill="currentColor" which renders invisible on canvas
+  // without a CSS context — we replace it with white before encoding.
   let heroIconPngUrl: string | null = null;
   try {
     const svgUrl = `${import.meta.env.BASE_URL}assets/cep-50%-hero-stat-icon.svg`;
     const res = await fetch(svgUrl);
     if (res.ok) {
-      const svgText = await res.text();
+      let svgText = await res.text();
+      // Replace currentColor with white so it's visible on the dark hero card
+      svgText = svgText.replace(/currentColor/g, '#ffffff');
+      // Add explicit width/height so the browser knows how to rasterise it
+      svgText = svgText.replace('<svg ', '<svg width="120" height="120" ');
       const svgBase64 = btoa(unescape(encodeURIComponent(svgText)));
       const dataUri = `data:image/svg+xml;base64,${svgBase64}`;
-      // Draw onto canvas to get a PNG data URL that jsPDF can use
       const img = await loadImage(dataUri, 3000);
       if (img) {
         const canvas = document.createElement('canvas');
