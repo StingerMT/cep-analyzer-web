@@ -1,4 +1,5 @@
 ﻿import { useState, useRef, useEffect, useCallback } from 'react'
+import { ICONS } from '../lib/icons'
 
 const C = {
   bg:'#1e1f22', surface:'#2b2d31', card:'#313338', elevated:'#383a40',
@@ -114,7 +115,7 @@ export default function CameraModal({ onCapture, onClose, t }: Props) {
         <span style={{color:'#fff',fontWeight:600,fontSize:'0.95rem'}}>
       {state==='captured' ? t('camera.title_preview') : t('camera.title_live')}
         </span>
-        <button onClick={onClose} style={{...btnBase,
+        <button onClick={onClose} className="cep-btn" style={{...btnBase,
           background:'rgba(0,0,0,0.5)',border:'1px solid rgba(255,255,255,0.3)',
           color:'#fff',borderRadius:'50%',width:38,height:38,fontSize:'1rem'}}>
           ✕
@@ -163,42 +164,49 @@ export default function CameraModal({ onCapture, onClose, t }: Props) {
 
           {state==='live'&&(
             <>
-              {/* Flip */}
+              {/* Flip camera — SVG icon, matches app visual language */}
               <button onClick={flipCamera} title={t('camera.flip')}
-                style={{...btnBase,background:'rgba(255,255,255,0.15)',
-                  border:'1px solid rgba(255,255,255,0.3)',borderRadius:'50%',
-                  width:52,height:52,color:'#fff',fontSize:'1.3rem'}}>
-                🔄
+                className="cep-btn"
+                style={{...btnBase,
+                  background:'rgba(255,255,255,0.12)',
+                  border:'1px solid rgba(255,255,255,0.25)',
+                  borderRadius:'50%',
+                  width:52, height:52}}>
+                <img
+                  src={ICONS.flipCamera}
+                  alt={t('camera.flip')}
+                  style={{ width: 26, height: 26, filter: 'invert(1)', opacity: 0.9 }}
+                />
               </button>
 
               {/* Shutter */}
               <button onClick={capture}
+                className="cep-btn"
                 style={{...btnBase,background:'#fff',
                   border:'5px solid rgba(255,255,255,0.45)',
                   borderRadius:'50%',width:80,height:80,
-                  boxShadow:'0 0 0 3px rgba(255,255,255,0.25)',
-                  transition:'transform 0.1s'}}
+                  boxShadow:'0 0 0 3px rgba(255,255,255,0.25)'}}
                 onMouseDown={e=>(e.currentTarget.style.transform='scale(0.91)')}
                 onMouseUp={e=>(e.currentTarget.style.transform='scale(1)')}
                 onTouchStart={e=>(e.currentTarget.style.transform='scale(0.91)')}
                 onTouchEnd={e=>(e.currentTarget.style.transform='scale(1)')}
               />
 
-              {/* Spacer */}
+              {/* Spacer — keeps shutter centred */}
               <div style={{width:52}}/>
             </>
           )}
 
           {state==='captured'&&(
             <>
-              <button onClick={retake}
+              <button onClick={retake} className="cep-btn"
                 style={{...btnBase,
                   background:'rgba(255,255,255,0.15)',
                   border:'1px solid rgba(255,255,255,0.4)',
                   color:'#fff',borderRadius:12,padding:'13px 30px',fontSize:'0.95rem'}}>
         {t('buttons.retake')}
               </button>
-              <button onClick={usePhoto}
+              <button onClick={usePhoto} className="cep-btn"
                 style={{...btnBase,background:C.green,color:'#000',
                   borderRadius:12,padding:'13px 30px',fontSize:'0.95rem'}}>
         {t('buttons.use_photo')}

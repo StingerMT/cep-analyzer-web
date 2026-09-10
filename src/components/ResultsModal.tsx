@@ -289,7 +289,7 @@ export function ResultsModal({
               {t('results.subtitle', { count: metrics.numPoints, cep: metrics.cep50.toFixed(2), unit: metrics.unit })}
             </div>
           </div>
-          <button onClick={onClose} style={{ background: 'none', border: 'none', color: CEP_THEME.muted, cursor: 'pointer', fontSize: '1.2rem', padding: 4, display: 'flex', alignItems: 'center', justifyContent: 'center', lineHeight: 1 }}>✕</button>
+          <button onClick={onClose} className="cep-btn" style={{ background: 'none', border: 'none', color: CEP_THEME.muted, cursor: 'pointer', fontSize: '1.2rem', padding: 4, display: 'flex', alignItems: 'center', justifyContent: 'center', lineHeight: 1 }}>✕</button>
         </div>
 
         {/* Body */}
@@ -307,7 +307,7 @@ export function ResultsModal({
 
           <div className={`res-plot ${isPlotCollapsed ? 'collapsed' : ''}`}>
             <div style={{ width: '100%', maxWidth: 320, position: 'relative' }}>
-              <button className="plot-toggle-btn" onClick={e => { e.stopPropagation(); setIsPlotCollapsed(v => !v); }}>
+              <button className="cep-btn plot-toggle-btn" onClick={e => { e.stopPropagation(); setIsPlotCollapsed(v => !v); }}>
                 {isPlotCollapsed ? t('results.expand_plot') : t('results.collapse_plot')}
               </button>
               <CEPPlot
@@ -341,7 +341,7 @@ export function ResultsModal({
                     {label}
                   </label>
                 ))}
-                <button onClick={executeBatchDownload} disabled={!isCacheReady}
+                <button onClick={executeBatchDownload} disabled={!isCacheReady} className="cep-btn"
                   style={{ background: CEP_THEME.green, color: '#fff', border: 'none', borderRadius: 6, padding: '8px 12px', fontSize: '0.82rem', fontWeight: 700, cursor: 'pointer', marginTop: 4, opacity: isCacheReady ? 1 : 0.5 }}>
                   {!isCacheReady ? t('results.preparing_files') : t('results.download_selected')}
                 </button>
@@ -368,6 +368,7 @@ export function ResultsModal({
                   </div>
                 )}
                 <button
+                  className="cep-btn"
                   onClick={executeSmartShare}
                   disabled={isProcessingShare || (isPdfBundleActive && isPdfPreparing && !pdfError) || (!shareOptions.loadedImage && !shareOptions.png && !shareOptions.csv)}
                   style={{

@@ -15,24 +15,26 @@ import { C } from '../lib/theme';
 import { Btn } from './Atoms';
 
 // ─── Paper-size preset list ───────────────────────────────────────────────────
-export const SCALE_PRESETS: { label: string; dist: number; unit: string }[] = [
-  { label: 'Custom',                    dist: 10,     unit: 'cm' },
-  { label: 'A5 short side (14.8 cm)',   dist: 14.80,  unit: 'cm' },
-  { label: 'A5 long side  (21.0 cm)',   dist: 21.00,  unit: 'cm' },
-  { label: 'A4 short side (21.0 cm)',   dist: 21.00,  unit: 'cm' },
-  { label: 'A4 long side  (29.7 cm)',   dist: 29.70,  unit: 'cm' },
-  { label: 'A3 short side (29.7 cm)',   dist: 29.70,  unit: 'cm' },
-  { label: 'A3 long side  (42.0 cm)',   dist: 42.00,  unit: 'cm' },
-  { label: 'A2 short side (42.0 cm)',   dist: 42.00,  unit: 'cm' },
-  { label: 'A2 long side  (59.4 cm)',   dist: 59.40,  unit: 'cm' },
-  { label: 'A1 short side (59.4 cm)',   dist: 59.40,  unit: 'cm' },
-  { label: 'A1 long side  (84.1 cm)',   dist: 84.10,  unit: 'cm' },
-  { label: 'A0 short side (84.1 cm)',   dist: 84.10,  unit: 'cm' },
-  { label: 'A0 long side (118.9 cm)',   dist: 118.90, unit: 'cm' },
-  { label: 'US Letter short (21.6 cm)', dist: 21.59,  unit: 'cm' },
-  { label: 'US Letter long  (27.9 cm)', dist: 27.94,  unit: 'cm' },
-  { label: 'US Legal short (21.6 cm)',  dist: 21.59,  unit: 'cm' },
-  { label: 'US Legal long  (35.6 cm)',  dist: 35.56,  unit: 'cm' },
+// Labels are i18n keys pointing into scale_presets.* in the locale files.
+// The component uses t() to resolve them at render time.
+export const SCALE_PRESETS: { labelKey: string; dist: number; unit: string }[] = [
+  { labelKey: 'scale_presets.custom',         dist: 10,     unit: 'cm' },
+  { labelKey: 'scale_presets.a5_short',        dist: 14.80,  unit: 'cm' },
+  { labelKey: 'scale_presets.a5_long',         dist: 21.00,  unit: 'cm' },
+  { labelKey: 'scale_presets.a4_short',        dist: 21.00,  unit: 'cm' },
+  { labelKey: 'scale_presets.a4_long',         dist: 29.70,  unit: 'cm' },
+  { labelKey: 'scale_presets.a3_short',        dist: 29.70,  unit: 'cm' },
+  { labelKey: 'scale_presets.a3_long',         dist: 42.00,  unit: 'cm' },
+  { labelKey: 'scale_presets.a2_short',        dist: 42.00,  unit: 'cm' },
+  { labelKey: 'scale_presets.a2_long',         dist: 59.40,  unit: 'cm' },
+  { labelKey: 'scale_presets.a1_short',        dist: 59.40,  unit: 'cm' },
+  { labelKey: 'scale_presets.a1_long',         dist: 84.10,  unit: 'cm' },
+  { labelKey: 'scale_presets.a0_short',        dist: 84.10,  unit: 'cm' },
+  { labelKey: 'scale_presets.a0_long',         dist: 118.90, unit: 'cm' },
+  { labelKey: 'scale_presets.us_letter_short', dist: 21.59,  unit: 'cm' },
+  { labelKey: 'scale_presets.us_letter_long',  dist: 27.94,  unit: 'cm' },
+  { labelKey: 'scale_presets.us_legal_short',  dist: 21.59,  unit: 'cm' },
+  { labelKey: 'scale_presets.us_legal_long',   dist: 35.56,  unit: 'cm' },
 ];
 
 // ─── Component ────────────────────────────────────────────────────────────────
@@ -106,7 +108,7 @@ export function ScaleDistanceDialog({ onConfirm, onCancel, isMobile = false, t }
           style={{ ...inp, marginBottom: 14, cursor: 'pointer' }}
         >
           {SCALE_PRESETS.map((p, i) => (
-            <option key={i} value={i}>{p.label}</option>
+            <option key={i} value={i}>{t(p.labelKey)}</option>
           ))}
         </select>
 

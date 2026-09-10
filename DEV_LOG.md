@@ -182,14 +182,15 @@ Pure SVG component — no external charting library.
 
 | Issue | Severity | Notes |
 |-------|----------|-------|
-| `App.tsx` is ~2800 lines | Medium | Should be split into separate component files. ResultsModal, CEPPlot, SettingsPanel, ScaleDistanceDialog are all candidates for extraction. |
+| `App.tsx` is ~2800 lines | ~~Medium~~ | ✅ Resolved — decomposed into 9 component files. App.tsx is now ~570 lines. |
 | Duplicate `useEffect` for asset fetching | ~~Low~~ | ✅ Resolved — duplicate removed. Single effect with `.ok` check and `loadedImageError` remains. |
 | `exportUtils.ts` is orphaned | Low | Old direct-download XLSX exporter, not imported anywhere. Can be deleted or kept as reference. |
-| `types/index.ts` partially stale | Low | `WorkflowStep` enum and some interfaces are unused — App uses its own inline types. |
-| `CEP_THEME` vs `C` constants | Low | Two separate design token objects exist in App.tsx. `CEP_THEME` is used in ResultsModal, `C` everywhere else. Could be unified. |
-| No PDF font selector exposed to user | Low | `registerPdfFont` supports 4 fonts but `generateDataPdfReport` is always called with the default `'Rubik'`. Font picker UI exists in pdfFontLoader types but isn't wired to Settings. |
-| `mkcert` required for HTTPS in dev | Info | Camera API requires HTTPS. `vite-plugin-mkcert` handles this locally. GitHub Pages deployment provides HTTPS natively. |
-| `vite.config.ts` `base: './'` | Info | Means all asset paths are relative. Correct for file:// and GitHub Pages, but subpath deployments need adjustment. |
+| `types/index.ts` partially stale | Low | `WorkflowStep` and some interfaces unused — App uses inline types. |
+| `CEP_THEME` vs `C` constants | Low | Two design token objects. `CEP_THEME` in ResultsModal, `C` elsewhere. Could be unified in a future pass. |
+| No PDF font selector exposed to user | Low | `registerPdfFont` supports 4 fonts but UI picker isn't wired to Settings. Planned for v1.1. |
+| SVG icon micro-animations | Low | Planned for v1.1 — hover spin on settings gear, ruffle on gallery icon, etc. Deferred to keep v1.0 release clean. |
+| `mkcert` required for HTTPS in dev | Info | Camera API requires HTTPS. `vite-plugin-mkcert` handles this locally. GitHub Pages provides HTTPS natively. |
+| `vite.config.ts` base path | Info | ✅ Updated — uses `/cep-analyzer-web/` for production builds, `./` for local/USB. |
 
 ---
 

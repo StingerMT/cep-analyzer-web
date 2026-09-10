@@ -24,6 +24,7 @@ export const ICONS = {
   // Rotation
   rotateCW:   `${B}/rotate image clockwise 90.svg`,
   rotateCCW:  `${B}/rotate-step-op3.svg`,
+  flipCamera: `${B}/rotate image counter clockwise 90.svg`,
   // Workflow sidebar
   stepShots:   `${B}/select shots workflow icon.svg`,
   stepOrigin:  `${B}/crosshair (2).svg`,

@@ -114,6 +114,7 @@ export function SettingsPanel({
             {t('settings.title')}
           </div>
           <button
+            className="cep-btn"
             onClick={onClose}
             style={{ background: 'none', border: 'none', color: T.muted, cursor: 'pointer', fontSize: '1.25rem', lineHeight: 1 }}
           >
@@ -273,6 +274,7 @@ export function SettingsPanel({
                     {t('settings.layer_management')}
                   </span>
                   <div
+                    className="cep-btn"
                     onClick={() => setShowPlotCustomizer(false)}
                     style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: '0.8rem', color: T.muted, cursor: 'pointer', fontWeight: 600 }}
                   >
@@ -294,6 +296,7 @@ export function SettingsPanel({
                 </div>
 
                 <button
+                  className="cep-btn"
                   onClick={() => setShowPlotCustomizer(false)}
                   style={{
                     width: '100%', padding: '10px', background: T.success, color: '#fff',
