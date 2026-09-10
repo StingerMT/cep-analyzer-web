@@ -119,12 +119,16 @@
     "share_selected": "שתף בחירה",
     "target_distance_label": "מרחק מטרה (מ'):",
     "share_not_supported": "שיתוף מערכת אינו נתמך בדפדפן זה",
+    "nothing_selected": "לא נבחרו רכיבים לשיתוף",
     "legend_origin": "ראשית הצירים (0,0)",
     "legend_shots": "נקודות פגיעה",
     "legend_mean": "נקודת נפ\"ם",
     "legend_es": "(ES) פיזור קיצוני",
     "legend_blocking": "(R) רדיוס חוסם",
-    "legend_cep": "CEP 50% מעגל"
+    "legend_cep": "CEP 50% מעגל",
+    "download_format_xlsx": "Excel (.xlsx)",
+    "download_format_png": "תמונת גרף (.png)",
+    "download_format_csv": "לוג נתונים (.csv)"
   },
   "camera": {
     "title_live": "צלם תמונה",
@@ -146,8 +150,7 @@
     "calculation_failed": "החישוב נכשל: {msg}",
     "export_failed": "הייצוא נכשל: {msg}",
     "xlsx_failed": "ייצוא XLSX נכשל: {msg}"
-  }
-,
+  },
   "settings": {
     "title": "הגדרות",
     "language": "שפה",

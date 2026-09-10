@@ -26,7 +26,7 @@
   "buttons": {
     "load_image": "Load Image",
     "camera": "Camera",
-    "confirm": "Confirm →",
+    "confirm": "Confirm",
     "calculate": "Calculate",
     "results": "Results",
     "undo": "Undo",
@@ -125,7 +125,10 @@
     "legend_mean": "Mean point",
     "legend_es": "Extreme Spread (ES)",
     "legend_blocking": "Blocking Radius",
-    "legend_cep": "CEP 50%"
+    "legend_cep": "CEP 50%",
+    "download_format_xlsx": "Excel (.xlsx)",
+    "download_format_png": "Plot Image (.png)",
+    "download_format_csv": "Data Log (.csv)"
   },
   "camera": {
     "title_live": "Take a Photo",
@@ -147,8 +150,7 @@
     "calculation_failed": "Calculation failed: {msg}",
     "export_failed": "Export failed: {msg}",
     "xlsx_failed": "XLSX export failed: {msg}"
-  }
-,
+  },
   "settings": {
     "title": "Settings",
     "language": "Language",

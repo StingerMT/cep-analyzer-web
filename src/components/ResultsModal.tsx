@@ -330,9 +330,9 @@ export function ResultsModal({
             {activePopup === 'download' && (
               <>
                 {[
-                  { key: 'xlsx', label: 'Excel (.xlsx)' },
-                  { key: 'png',  label: 'Plot Image (.png)' },
-                  { key: 'csv',  label: 'Data Log (.csv)' },
+                  { key: 'xlsx', label: t('results.download_format_xlsx') },
+                  { key: 'png',  label: t('results.download_format_png') },
+                  { key: 'csv',  label: t('results.download_format_csv') },
                 ].map(({ key, label }) => (
                   <label key={key} style={{ display: 'flex', alignItems: 'center', gap: 10, color: CEP_THEME.text, fontSize: '0.85rem', cursor: 'pointer', padding: '2px 0' }}>
                     <input type="checkbox" style={{ accentColor: CEP_THEME.green }}
