@@ -126,11 +126,12 @@ html, body, #root { width: 100%; height: 100%; }
 
 /* ─── Btn micro-press ────────────────────────────────────────────────────── */
 .cep-btn {
-  transition: background 0.12s ease, transform 0.08s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+  transition: background 0.12s ease, transform 0.08s ease, box-shadow 0.12s ease;
 }
 .cep-btn:hover:not(:disabled) {
-  opacity: 0.85;
+  background: rgba(255, 255, 255, 0.08) !important;
 }
 .cep-btn:active:not(:disabled) {
   transform: scale(0.95);
+  background: rgba(255, 255, 255, 0.04) !important;
 }
