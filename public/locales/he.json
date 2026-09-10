@@ -126,9 +126,9 @@
     "legend_es": "(ES) פיזור קיצוני",
     "legend_blocking": "(R) רדיוס חוסם",
     "legend_cep": "CEP 50% מעגל",
-    "download_format_xlsx": "Excel (.xlsx)",
+    "download_format_xlsx": "אקסל (.xlsx)",
     "download_format_png": "תמונת גרף (.png)",
-    "download_format_csv": "לוג נתונים (.csv)"
+    "download_format_csv": "נתונים גולמיים (.csv)"
   },
   "camera": {
     "title_live": "צלם תמונה",

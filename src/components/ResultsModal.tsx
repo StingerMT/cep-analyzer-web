@@ -289,7 +289,7 @@ export function ResultsModal({
               {t('results.subtitle', { count: metrics.numPoints, cep: metrics.cep50.toFixed(2), unit: metrics.unit })}
             </div>
           </div>
-          <button onClick={onClose} className="cep-btn" style={{ background: 'none', border: 'none', color: CEP_THEME.muted, cursor: 'pointer', fontSize: '1.2rem', padding: 4, display: 'flex', alignItems: 'center', justifyContent: 'center', lineHeight: 1 }}>✕</button>
+          <button onClick={onClose} className="cep-btn cep-btn-ghost" style={{ background: 'none', border: 'none', color: CEP_THEME.muted, cursor: 'pointer', fontSize: '1.2rem', padding: 4, display: 'flex', alignItems: 'center', justifyContent: 'center', lineHeight: 1 }}>✕</button>
         </div>
 
         {/* Body */}
@@ -307,7 +307,7 @@ export function ResultsModal({
 
           <div className={`res-plot ${isPlotCollapsed ? 'collapsed' : ''}`}>
             <div style={{ width: '100%', maxWidth: 320, position: 'relative' }}>
-              <button className="cep-btn plot-toggle-btn" onClick={e => { e.stopPropagation(); setIsPlotCollapsed(v => !v); }}>
+              <button className="cep-btn cep-btn-ghost plot-toggle-btn" onClick={e => { e.stopPropagation(); setIsPlotCollapsed(v => !v); }}>
                 {isPlotCollapsed ? t('results.expand_plot') : t('results.collapse_plot')}
               </button>
               <CEPPlot

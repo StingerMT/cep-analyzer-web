@@ -678,7 +678,7 @@ export default function App() {
               <div style={{ marginTop: 'auto', paddingBottom: 8, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
                 <div style={{ width: '60%', height: 1, background: C.border, marginBottom: 4 }} />
                 <button
-                  className="cep-btn"
+                  className="cep-btn cep-btn-ghost"
                   onClick={() => goToStep(stepOrder[stepIdx - 1] as Step)}
                   title={t('sidebar.back_title')}
                   style={{ background: 'none', border: `1px solid ${C.border}`, borderRadius: 6, color: C.muted, cursor: 'pointer', fontSize: '1.1rem', width: 32, height: 28, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'inherit' }}
