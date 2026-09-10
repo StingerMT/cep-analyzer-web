@@ -129,31 +129,20 @@ export const generateDataPdfReport = async (
     doc.setFont(selectedFont);
   }
 
-  // Pre-load hero SVG icon as a white PNG for embedding in jsPDF.
-  // The SVG uses fill="currentColor" which renders invisible on canvas
-  // without a CSS context — we replace it with white before encoding.
-  let heroIconPngUrl: string | null = null;
+  // Pre-load hero SVG icon for embedding in jsPDF.
+  // We fetch the SVG, replace currentColor with white, and pass it directly
+  // to jsPDF as a base64 SVG — skipping canvas rasterisation entirely,
+  // which is unreliable on mobile browsers for complex path SVGs.
+  let heroIconB64: string | null = null;
+  let heroIconFormat: string = 'SVG';
   try {
     const svgUrl = `${import.meta.env.BASE_URL}assets/cep-50%-hero-stat-icon.svg`;
     const res = await fetch(svgUrl);
     if (res.ok) {
       let svgText = await res.text();
-      // Replace currentColor with white so it's visible on the dark hero card
       svgText = svgText.replace(/currentColor/g, '#ffffff');
-      // Add explicit width/height so the browser knows how to rasterise it
-      svgText = svgText.replace('<svg ', '<svg width="120" height="120" ');
-      const svgBase64 = btoa(unescape(encodeURIComponent(svgText)));
-      const dataUri = `data:image/svg+xml;base64,${svgBase64}`;
-      const img = await loadImage(dataUri, 3000);
-      if (img) {
-        const canvas = document.createElement('canvas');
-        canvas.width = 120; canvas.height = 120;
-        const ctx = canvas.getContext('2d');
-        if (ctx) {
-          ctx.drawImage(img, 0, 0, 120, 120);
-          heroIconPngUrl = canvas.toDataURL('image/png');
-        }
-      }
+      heroIconB64 = `data:image/svg+xml;base64,${btoa(unescape(encodeURIComponent(svgText)))}`;
+      heroIconFormat = 'SVG';
     }
   } catch (e) {
     console.warn('[PDF] Could not load hero SVG, using shape fallback', e);
@@ -223,8 +212,8 @@ export const generateDataPdfReport = async (
   const iconSize = 10;
   const iconX = (isHe ? margin + 12 : margin + contentWidth - 12) - iconSize / 2;
   const iconY = currentY + (heroHeight - iconSize) / 2;
-  if (heroIconPngUrl) {
-    doc.addImage(heroIconPngUrl, 'PNG', iconX, iconY, iconSize, iconSize, undefined, 'FAST');
+  if (heroIconB64) {
+    doc.addImage(heroIconB64, heroIconFormat, iconX, iconY, iconSize, iconSize, undefined, 'FAST');
   } else {
     const icx = isHe ? margin + 12 : margin + contentWidth - 12;
     doc.setDrawColor(255, 255, 255); doc.setLineWidth(0.4);
