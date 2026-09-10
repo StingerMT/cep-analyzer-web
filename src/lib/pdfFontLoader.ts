@@ -6,10 +6,10 @@ export type SupportedPdfFont = 'Rubik' | 'Heebo' | 'Assistant' | 'DavidLibre';
 // AVAILABLE_FONTS: metadata registry for each font.
 // `label` / `labelHe` are for a future font-picker UI in SettingsPanel (not yet wired up).
 export const AVAILABLE_FONTS: Record<SupportedPdfFont, { name: string; file: string; label: string; labelHe: string }> = {
-  Rubik: { name: 'Rubik', file: '/fonts/Rubik-Regular.ttf', label: 'Rubik (Sans-Serif)', labelHe: 'רוביק' },
-  Heebo: { name: 'Heebo', file: '/fonts/Heebo-Regular.ttf', label: 'Heebo (Modern)', labelHe: 'היבו' },
-  Assistant: { name: 'Assistant', file: '/fonts/Assistant-Regular.ttf', label: 'Assistant (Clean)', labelHe: 'אסיסטנט' },
-  DavidLibre: { name: 'DavidLibre', file: '/fonts/DavidLibre-Regular.ttf', label: 'David Libre (Serif)', labelHe: 'דוד ליברה' },
+  Rubik:      { name: 'Rubik',      file: `${import.meta.env.BASE_URL}fonts/Rubik-Regular.ttf`,      label: 'Rubik (Sans-Serif)', labelHe: 'רוביק' },
+  Heebo:      { name: 'Heebo',      file: `${import.meta.env.BASE_URL}fonts/Heebo-Regular.ttf`,      label: 'Heebo (Modern)',     labelHe: 'היבו' },
+  Assistant:  { name: 'Assistant',  file: `${import.meta.env.BASE_URL}fonts/Assistant-Regular.ttf`,  label: 'Assistant (Clean)',  labelHe: 'אסיסטנט' },
+  DavidLibre: { name: 'DavidLibre', file: `${import.meta.env.BASE_URL}fonts/DavidLibre-Regular.ttf`, label: 'David Libre (Serif)', labelHe: 'דוד ליברה' },
 };
 
 // Module-level cache: stores the base64 string for each font key after the first fetch.

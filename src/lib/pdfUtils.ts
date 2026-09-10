@@ -132,7 +132,7 @@ export const generateDataPdfReport = async (
   // Pre-load hero SVG icon → PNG via canvas (falls back to native circle shape)
   let heroIconPngUrl: string | null = null;
   try {
-    const img = await loadImage('/assets/cep-50%-hero-stat-icon.svg', 2000);
+    const img = await loadImage(`${import.meta.env.BASE_URL}assets/cep-50%-hero-stat-icon.svg`, 2000);
     if (img) {
       const canvas = document.createElement('canvas');
       canvas.width = 120; canvas.height = 120;

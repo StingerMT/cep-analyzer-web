@@ -1,8 +1,11 @@
 ﻿/**
  * Icon configuration — swap options here, rest of app updates automatically.
- * All paths relative to /public — work offline from file:// too.
+ *
+ * Uses import.meta.env.BASE_URL so paths work correctly on both:
+ *   - GitHub Pages: /cep-analyzer-web/assets/...
+ *   - Local dev / file://: /assets/... or ./assets/...
  */
-const B = '/assets'
+const B = `${import.meta.env.BASE_URL}assets`
 
 export const ICONS = {
   // Action buttons
