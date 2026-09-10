@@ -41,7 +41,7 @@ Load a photo of a shooting target, mark your shot holes, set a scale reference a
 2. **Rotate** *(optional)* — straighten the image with 0.1° precision
 3. **Set Scale** — click two known reference points, enter the real distance (paper-size presets available)
 4. **Set Origin** — click the aiming point (target centre)
-5. **Mark Shots** — click each bullet hole, or use auto-detect
+5. **Mark Shots** — click each bullet hole
 6. **Calculate** — get all metrics instantly
 7. **Export / Share** — download CSV/XLSX/PNG or share a full PDF report
 
@@ -84,6 +84,6 @@ npm run build
 
 ## License
 
-[PolyForm Noncommercial 1.0.0](../cep-target-analyzer/LICENSE) — Free for non-commercial use. Attribution required.
+[PolyForm Noncommercial 1.0.0](LICENSE) — Free for non-commercial use. Attribution required.
 Commercial use requires explicit written permission.
 © 2025 Benyamin Abramovitz | [GitHub](https://github.com/StingerMT)

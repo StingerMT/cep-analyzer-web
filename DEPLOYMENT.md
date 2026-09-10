@@ -116,7 +116,7 @@ TROUBLESHOOTING:
 - If images appear rotated, the app will auto-correct them
 
 VERSION: 1.0.0
-CONTACT: [Your Contact Info]
+CONTACT: https://github.com/StingerMT
 ```
 
 ## Deployment to Devices
@@ -214,16 +214,14 @@ Maintain a CHANGELOG.txt on the USB stick:
 CEP TARGET ANALYZER - CHANGELOG
 ================================
 
-Version 1.1.0 (2026-05-25)
-- Fixed: Image rotation on Samsung devices
-- Added: Workflow progress indicator
-- Improved: Touch responsiveness
-
-Version 1.0.0 (2026-05-20)
+Version 1.0.0 (2025)
 - Initial release
-- Full CEP analysis
+- Full CEP analysis (CEP50, sigma X/Y, blocking radius, extreme spread, mrad)
 - Camera & gallery support
-- Export to CSV
+- Bilingual EN/HE with RTL layout
+- Export to CSV, XLSX, PNG, and PDF report
+- Web Share API for native mobile sharing
+- PWA installable
 ```
 
 ## Troubleshooting Deployment
