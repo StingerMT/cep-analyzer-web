@@ -1,0 +1,182 @@
+﻿{
+  "app": {
+    "title": "CEP Target Analyzer",
+    "subtitle": "Offline · USB Deployable · Cross-Platform"
+  },
+  "nav": {
+    "offline": "Offline · USB Deployable"
+  },
+  "steps": {
+    "rotate": "Rotate",
+    "scale": "Scale",
+    "origin": "Origin",
+    "shots": "Shots",
+    "results": "Results"
+  },
+  "status": {
+    "idle": "Load a target image to begin",
+    "rotate": "Adjust rotation if needed, then Confirm",
+    "scale_tap1": "Tap two reference points of known distance",
+    "scale_tap2": "Tap the second reference point",
+    "origin": "Tap the point of aim — centre of the target",
+    "shots_need_more": "Tap each bullet hole ({count}/3 minimum)",
+    "shots_ready": "{count} shots marked — tap Calculate when done",
+    "results": "CEP 50% = {cep} {unit}"
+  },
+  "buttons": {
+    "load_image": "Load Image",
+    "camera": "Camera",
+    "confirm": "Confirm →",
+    "calculate": "Calculate",
+    "results": "Results",
+    "undo": "Undo",
+    "back": "back",
+    "done": "Done",
+    "cancel": "Cancel",
+    "retake": "↩ Retake",
+    "use_photo": "✓ Use Photo",
+    "export_csv": "Export CSV",
+    "export_excel": "Export Excel",
+    "edit_shots": "Edit Shots",
+    "download": "Download",
+    "share": "Share"
+  },
+  "idle": {
+    "no_image": "No image loaded"
+  },
+  "rotation": {
+    "label": "{angle}°",
+    "minus_half": "−0.5°",
+    "plus_half": "+0.5°",
+    "ccw_90": "−90°",
+    "cw_90": "+90°",
+    "reset": "Reset"
+  },
+  "zoom": {
+    "zoom_in": "Zoom in (Ctrl+scroll)",
+    "zoom_out": "Zoom out",
+    "reset": "Reset view",
+    "mmb_hint": "MMB drag pan"
+  },
+  "sidebar": {
+    "back_title": "Go back one step",
+    "step_title_done": "Go back to {step}",
+    "step_title_active": "{step}"
+  },
+  "scale_dialog": {
+    "title": "Scale Reference Distance",
+    "description": "Select a paper size preset or enter a custom distance between your two reference points.",
+    "preset_label": "Paper Size Preset",
+    "distance_label_custom": "Custom Distance",
+    "distance_label_preset": "Reference Distance (from preset)",
+    "summary": "Scale: {dist} {unit} between your two reference points",
+    "confirm": "Confirm",
+    "cancel": "Cancel"
+  },
+  "scale_presets": {
+    "custom": "Custom",
+    "a5_short": "A5 short side (14.8 cm)",
+    "a5_long":  "A5 long side  (21.0 cm)",
+    "a4_short": "A4 short side (21.0 cm)",
+    "a4_long":  "A4 long side  (29.7 cm)",
+    "a3_short": "A3 short side (29.7 cm)",
+    "a3_long":  "A3 long side  (42.0 cm)",
+    "a2_short": "A2 short side (42.0 cm)",
+    "a2_long":  "A2 long side  (59.4 cm)",
+    "a1_short": "A1 short side (59.4 cm)",
+    "a1_long":  "A1 long side  (84.1 cm)",
+    "a0_short": "A0 short side (84.1 cm)",
+    "a0_long":  "A0 long side (118.9 cm)",
+    "us_letter_short": "US Letter short (21.6 cm)",
+    "us_letter_long":  "US Letter long  (27.9 cm)",
+    "us_legal_short":  "US Legal short (21.6 cm)",
+    "us_legal_long":   "US Legal long  (35.6 cm)"
+  },
+  "results": {
+    "title": "Analysis Results",
+    "subtitle": "{count} shots · CEP 50% = {cep} {unit}",
+    "shots": "Shots",
+    "cep50": "CEP 50%",
+    "extreme_spread": "Extreme Spread",
+    "mean_to_origin": "Mean → Origin",
+    "sigma_x": "Sigma X",
+    "sigma_y": "Sigma Y",
+    "blocking_r": "Blocking R",
+    "combined_std": "Combined Std",
+    "plot_title": "Shot Dispersion Plot",
+    "expand_plot": "▼ Expand Plot",
+    "collapse_plot": "▲ Collapse",
+    "download_header": "Download Formats:",
+    "share_header": "Select Assets to Share:",
+    "share_label_photo": "Original Target Photo",
+    "share_label_png": "Plot Image (PNG)",
+    "share_label_csv": "Raw Data (CSV)",
+    "pdf_bundle_hint": "Selected images and data will be automatically bundled into a single PDF report.",
+    "preparing_files": "Preparing...",
+    "download_selected": "Download Selected",
+    "generating_pdf": "Generating PDF",
+    "compiling_assets": "Compiling Assets",
+    "share_selected": "Share Selected",
+    "target_distance_label": "Target Distance (m):",
+    "share_not_supported": "Native sharing not supported in this browser.",
+    "nothing_selected": "No assets selected to share.",
+    "legend_origin": "Origin (0,0)",
+    "legend_shots": "Shot points",
+    "legend_mean": "Mean point",
+    "legend_es": "Extreme Spread (ES)",
+    "legend_blocking": "Blocking Radius",
+    "legend_cep": "CEP 50%"
+  },
+  "camera": {
+    "title_live": "Take a Photo",
+    "title_preview": "Use this photo?",
+    "starting": "Starting camera…",
+    "flip": "Flip camera",
+    "error_denied": "Camera permission denied. Please allow camera access and try again.",
+    "error_not_found": "No camera found on this device.",
+    "error_generic": "Camera error: {msg}",
+    "error_unsupported": "Camera API not available. Use HTTPS or load an image from gallery instead.",
+    "close": "Close"
+  },
+  "proximity": {
+    "warning": "This point is very close to an existing marker.\nAdd it anyway?"
+  },
+  "errors": {
+    "load_image": "Failed to load image: {msg}",
+    "calculation": "Complete all steps:\n1. Set scale\n2. Set origin\n3. Mark at least 3 shots",
+    "calculation_failed": "Calculation failed: {msg}",
+    "export_failed": "Export failed: {msg}",
+    "xlsx_failed": "XLSX export failed: {msg}"
+  }
+,
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "visual": "Visual Settings",
+    "dot_size": "Shot point size",
+    "line_width": "Scale line width",
+    "shot_color": "Shot point color",
+    "origin_color": "Origin (0,0) color",
+    "scale_color": "Scale line color",
+    "reset_defaults": "Reset to defaults",
+    "edit_shots": "Edit Shots",
+    "export_csv": "Export CSV",
+    "export_excel": "Export Excel",
+    "live_preview": "Live Preview",
+    "layer_management": "Layer Management",
+    "save_changes": "Save Changes",
+    "reset_to_defaults": "Reset to Defaults",
+    "plot_layers": "Plot Layer Customization",
+    "shot_nodes_size": "Shot Nodes Size",
+    "axis_line_weight": "Axis Line Weight",
+    "shot_tint": "Shot Tint",
+    "axis_color": "Axis Color",
+    "scale_color_label": "Scale Color",
+    "layer_grid": "Background Grid",
+    "layer_labels": "Distance Labels",
+    "layer_cep": "CEP 50%",
+    "layer_blocking": "Blocking Radius",
+    "layer_es": "Extreme Spread",
+    "layer_mean_origin": "Mean-Origin"
+  }
+}

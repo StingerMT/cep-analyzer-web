@@ -1,0 +1,181 @@
+﻿{
+  "app": {
+    "title": "מנתח פיזור דיוק",
+    "subtitle": "לא מקוון · נייד ב-USB · רב-פלטפורמה"
+  },
+  "nav": {
+    "offline": "לא מקוון · נייד ב-USB"
+  },
+  "steps": {
+    "rotate": "סיבוב",
+    "scale": "קנה מידה",
+    "origin": "ראשית צירים",
+    "shots": "פגיעות",
+    "results": "תוצאות"
+  },
+  "status": {
+    "idle": "טען תמונת מטרה להתחלה",
+    "rotate": "סובב את התמונה לפי הצורך, ואז אשר",
+    "scale_tap1": "בחר שתי נקודות ייחוס במרחק ידוע",
+    "scale_tap2": "הקש על נקודת הייחוס השנייה",
+    "origin": "הקש על 0,0 — מרכז המטרה",
+    "shots_need_more": "סמן פגיעות ({count}/3 מינימום)",
+    "shots_ready": "{count} פגיעות סומנו — הקש על חשב ",
+    "results": "CEP 50% = {cep} {unit}"
+  },
+  "buttons": {
+    "load_image": "טען תמונה",
+    "camera": "מצלמה",
+    "confirm": "אשר",
+    "calculate": "חשב",
+    "results": "תוצאות",
+    "undo": "בטל",
+    "back": "חזור",
+    "done": "סיום",
+    "cancel": "ביטול",
+    "retake": "↩ צלם שוב",
+    "use_photo": "✓ השתמש בתמונה",
+    "export_csv": "ייצוא CSV",
+    "export_excel": "ייצוא אקסל",
+    "edit_shots": "ערוך פגיעות",
+    "download": "הורדה",
+    "share": "שיתוף"
+  },
+  "idle": {
+    "no_image": "לא נטענה תמונה"
+  },
+  "rotation": {
+    "label": "{angle}°",
+    "minus_half": "−0.5°",
+    "plus_half": "+0.5°",
+    "ccw_90": "−90°",
+    "cw_90": "+90°",
+    "reset": "אפס"
+  },
+  "zoom": {
+    "zoom_in": "הגדל (Ctrl+גלגלת)",
+    "zoom_out": "הקטן",
+    "reset": "אפס תצוגה",
+    "mmb_hint": "גרור עם הלחצן האמצעי"
+  },
+  "sidebar": {
+    "back_title": "חזור צעד אחד אחורה",
+    "step_title_done": "חזור אל {step}",
+    "step_title_active": "{step}"
+  },
+  "scale_dialog": {
+    "title": "מרחק ייחוס קנה מידה",
+    "description": "בחר גודל נייר מוגדר מראש, או הזן מרחק מותאם אישית בין שתי נקודות הייחוס.",
+    "preset_label": "מידות נייר מוגדרות מראש",
+    "distance_label_custom": "מרחק מותאם אישית",
+    "distance_label_preset": "אורך ייחוס",
+    "summary": "קנה מידה: {dist} {unit} בין שתי נקודות הייחוס",
+    "confirm": "אישור",
+    "cancel": "ביטול"
+  },
+  "scale_presets": {
+    "custom": "מותאם אישית",
+    "a5_short": "A5 צלע קצרה (14.8 ס\"מ)",
+    "a5_long":  "A5 צלע ארוכה (21.0 ס\"מ)",
+    "a4_short": "A4 צלע קצרה (21.0 ס\"מ)",
+    "a4_long":  "A4 צלע ארוכה (29.7 ס\"מ)",
+    "a3_short": "A3 צלע קצרה (29.7 ס\"מ)",
+    "a3_long":  "A3 צלע ארוכה (42.0 ס\"מ)",
+    "a2_short": "A2 צלע קצרה (42.0 ס\"מ)",
+    "a2_long":  "A2 צלע ארוכה (59.4 ס\"מ)",
+    "a1_short": "A1 צלע קצרה (59.4 ס\"מ)",
+    "a1_long":  "A1 צלע ארוכה (84.1 ס\"מ)",
+    "a0_short": "A0 צלע קצרה (84.1 ס\"מ)",
+    "a0_long":  "A0 צלע ארוכה (118.9 ס\"מ)",
+    "us_letter_short": "US Letter קצר (21.6 ס\"מ)",
+    "us_letter_long":  "US Letter ארוך (27.9 ס\"מ)",
+    "us_legal_short":  "US Legal קצר (21.6 ס\"מ)",
+    "us_legal_long":   "US Legal ארוך (35.6 ס\"מ)"
+  },
+  "results": {
+    "title": "תוצאות ניתוח",
+    "subtitle": "{count} פגיעות · CEP 50% = {cep} {unit}",
+    "shots": "פגיעות",
+    "cep50": "CEP 50%",
+    "extreme_spread": "פיזור קיצוני [ES]",
+    "mean_to_origin": "נפ''ם ← נפ''ר",
+    "sigma_x": "סטיית תקן אופקית [X]",
+    "sigma_y": "סטיית תקן אנכית [Y]",
+    "blocking_r": "רדיוס חוסם [R]",
+    "combined_std": "סטיית תקן משולבת",
+    "plot_title": "גרף פיזור פגיעות",
+    "expand_plot": "▼ הרחב גרף",
+    "collapse_plot": "▲ צמצם",
+    "download_header": "בחר קבצים להורדה:",
+    "share_header": "בחר רכיבים לשיתוף:",
+    "share_label_photo": "תמונת מקור",
+    "share_label_png": "גרף פגיעות (PNG)",
+    "share_label_csv": "נתונים גולמיים (CSV)",
+    "pdf_bundle_hint": "היות שנבחרו גם תמונות וגם נתונים, השיתוף יתבצע כדוח PDF יחיד ומעוצב.",
+    "preparing_files": "מכין קבצים...",
+    "download_selected": "הורד קבצים נבחרים",
+    "generating_pdf": "מכין דוח PDF",
+    "compiling_assets": "מכין שיתוף",
+    "share_selected": "שתף בחירה",
+    "target_distance_label": "מרחק מטרה (מ'):",
+    "share_not_supported": "שיתוף מערכת אינו נתמך בדפדפן זה",
+    "legend_origin": "ראשית הצירים (0,0)",
+    "legend_shots": "נקודות פגיעה",
+    "legend_mean": "נקודת נפ\"ם",
+    "legend_es": "(ES) פיזור קיצוני",
+    "legend_blocking": "(R) רדיוס חוסם",
+    "legend_cep": "CEP 50% מעגל"
+  },
+  "camera": {
+    "title_live": "צלם תמונה",
+    "title_preview": "להשתמש בתמונה זו?",
+    "starting": "מפעיל מצלמה…",
+    "flip": "הפוך מצלמה",
+    "error_denied": "הרשאת מצלמה נדחתה. אנא אפשר גישה למצלמה ונסה שוב.",
+    "error_not_found": "לא נמצאה מצלמה במכשיר זה.",
+    "error_generic": "שגיאת מצלמה: {msg}",
+    "error_unsupported": "ממשק המצלמה אינו זמין. השתמש ב-HTTPS או טען תמונה מהגלריה במקום.",
+    "close": "סגור"
+  },
+  "proximity": {
+    "warning": "נקודה זו קרובה מאוד לסמן קיים.\nלהוסיף בכל זאת?"
+  },
+  "errors": {
+    "load_image": "טעינת התמונה נכשלה: {msg}",
+    "calculation": "השלם את כל השלבים:\n1. הגדר קנה מידה\n2. הגדר ראשית צירים\n3. סמן לפחות 3 פגיעות",
+    "calculation_failed": "החישוב נכשל: {msg}",
+    "export_failed": "הייצוא נכשל: {msg}",
+    "xlsx_failed": "ייצוא XLSX נכשל: {msg}"
+  }
+,
+  "settings": {
+    "title": "הגדרות",
+    "language": "שפה",
+    "visual": "הגדרות ויזואליות",
+    "dot_size": "גודל נקודת ירי",
+    "line_width": "גודל קו קנה מידה \nוראשית צירים",
+    "shot_color": "צבע נקודות ירי",
+    "origin_color": "צבע ראשית הצירים",
+    "scale_color": "צבע קו קנה מידה",
+    "reset_defaults": "איפוס לברירת מחדל",
+    "edit_shots": "ערוך נקודות",
+    "export_csv": "ייצא CSV",
+    "export_excel": "ייצא Excel",
+    "live_preview": "תצוגה מקדימה",
+    "layer_management": "התאמת שכבות גרף",
+    "save_changes": "שמור ועדכן תצוגה",
+    "reset_to_defaults": "איפוס לברירת מחדל",
+    "plot_layers": "התאמת שכבות גרף ותצוגה",
+    "shot_nodes_size": "גודל נקודות ירי",
+    "axis_line_weight": "עובי קווי מתאר",
+    "shot_tint": "צבע נקודות פגיעה",
+    "axis_color": "צבע ראשית הצירים",
+    "scale_color_label": "צבע קווי מידה",
+    "layer_grid": "קווי רשת",
+    "layer_labels": "יחידות מרחק",
+    "layer_cep": "עיגול CEP 50%",
+    "layer_blocking": "רדיוס חוסם (R)",
+    "layer_es": "קו פיזור (ES)",
+    "layer_mean_origin": "קו נפ\"ם-נפ\"ר"
+  }
+}

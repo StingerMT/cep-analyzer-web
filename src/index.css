@@ -1,0 +1,133 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body, #root { width: 100%; height: 100%; }
+
+/* ─── Keyframe library ───────────────────────────────────────────────────────
+   All animation keyframes live here so components can reference them by name
+   without injecting <style> tags at runtime.
+─────────────────────────────────────────────────────────────────────────── */
+
+/* Gentle vertical float — used on the idle 🎯 target icon */
+@keyframes cep-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+/* Soft glow pulse — used on the status pill when user action is needed */
+@keyframes cep-pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(88, 101, 242, 0); }
+  50%       { box-shadow: 0 0 0 6px rgba(88, 101, 242, 0.25); }
+}
+
+/* Modal entrance — scale up from 96% with fade */
+@keyframes cep-scale-in {
+  from { opacity: 0; transform: scale(0.96) translateY(8px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0px); }
+}
+
+/* Slide up from below — used on the floating action card and rotation bar */
+@keyframes cep-slide-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0px); }
+}
+
+/* Sidebar entrance — slide in from left */
+@keyframes cep-slide-in-left {
+  from { opacity: 0; transform: translateX(-16px); }
+  to   { opacity: 1; transform: translateX(0px); }
+}
+
+/* SVG stroke draw — used on CEP plot circles and lines */
+@keyframes cep-draw {
+  from { stroke-dashoffset: 1; }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* Shot dot pop-in — staggered scale entrance for each dot */
+@keyframes cep-dot-pop {
+  0%   { transform: scale(0);   opacity: 0; }
+  70%  { transform: scale(1.25); opacity: 1; }
+  100% { transform: scale(1);   opacity: 1; }
+}
+
+/* Fade in — generic opacity entrance */
+@keyframes cep-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Subtle wiggle — used on buttons with important actions */
+@keyframes cep-wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25%       { transform: rotate(-3deg); }
+  75%       { transform: rotate(3deg); }
+}
+
+/* ─── Utility animation classes ──────────────────────────────────────────── */
+.cep-float        { animation: cep-float 3.5s ease-in-out infinite; }
+.cep-pulse-glow   { animation: cep-pulse-glow 2s ease-in-out infinite; }
+.cep-scale-in     { animation: cep-scale-in 0.22s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+.cep-slide-up     { animation: cep-slide-up 0.2s ease-out forwards; }
+.cep-slide-left   { animation: cep-slide-in-left 0.2s ease-out forwards; }
+.cep-fade-in      { animation: cep-fade-in 0.25s ease-out forwards; }
+
+/* ─── CEPPlot interactive styles ─────────────────────────────────────────── */
+/* Shot dot group — cursor pointer and smooth transform on hover */
+.cep-shot-dot {
+  cursor: crosshair;
+  transform-origin: center;
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.cep-shot-dot:hover {
+  transform: scale(1.5);
+}
+
+/* Plot container hover — subtle lift */
+.cep-plot-container {
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.cep-plot-container:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35) !important;
+  transform: translateY(-1px);
+}
+
+/* ─── MetricCard hover ───────────────────────────────────────────────────── */
+.cep-metric-card {
+  transition: box-shadow 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+}
+.cep-metric-card:hover {
+  box-shadow: 0 0 0 1px rgba(88, 101, 242, 0.4), 0 4px 20px rgba(88, 101, 242, 0.15);
+  border-color: rgba(88, 101, 242, 0.5) !important;
+  transform: translateY(-1px);
+}
+
+/* ─── Sidebar step dot hover ─────────────────────────────────────────────── */
+.cep-step-dot {
+  transition: background 0.15s ease, border-color 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+.cep-step-dot.can-nav:hover {
+  transform: scale(1.12);
+  box-shadow: 0 0 0 3px rgba(88, 101, 242, 0.25);
+}
+
+/* Sidebar connector fill transition */
+.cep-step-connector {
+  transition: background 0.4s ease;
+}
+
+/* ─── IconBtn border glow ────────────────────────────────────────────────── */
+.cep-icon-btn {
+  transition: background 0.12s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+}
+.cep-icon-btn:hover {
+  border-color: rgba(88, 101, 242, 0.5) !important;
+  box-shadow: 0 0 0 2px rgba(88, 101, 242, 0.15);
+  transform: scale(1.05);
+}
+
+/* ─── Btn micro-press ────────────────────────────────────────────────────── */
+.cep-btn {
+  transition: background 0.12s ease, transform 0.08s ease, box-shadow 0.12s ease;
+}
+.cep-btn:active:not(:disabled) {
+  transform: scale(0.95);
+}
