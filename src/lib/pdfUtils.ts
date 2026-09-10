@@ -129,24 +129,33 @@ export const generateDataPdfReport = async (
     doc.setFont(selectedFont);
   }
 
-  // Pre-load hero SVG icon for embedding in jsPDF.
-  // We fetch the SVG, replace currentColor with white, and pass it directly
-  // to jsPDF as a base64 SVG — skipping canvas rasterisation entirely,
-  // which is unreliable on mobile browsers for complex path SVGs.
-  let heroIconB64: string | null = null;
-  let heroIconFormat: string = 'SVG';
-  try {
-    const svgUrl = `${import.meta.env.BASE_URL}assets/cep-50%-hero-stat-icon.svg`;
-    const res = await fetch(svgUrl);
-    if (res.ok) {
-      let svgText = await res.text();
-      svgText = svgText.replace(/currentColor/g, '#ffffff');
-      heroIconB64 = `data:image/svg+xml;base64,${btoa(unescape(encodeURIComponent(svgText)))}`;
-      heroIconFormat = 'SVG';
-    }
-  } catch (e) {
-    console.warn('[PDF] Could not load hero SVG, using shape fallback', e);
-  }
+  // Hero icon: drawn natively with jsPDF vector commands.
+  // This is 100% reliable — no canvas, no fetch, no SVG parsing.
+  // The icon is a CEP-style crosshair target (concentric circles + crosshairs + arrow).
+  const drawHeroIcon = (x: number, y: number, size: number) => {
+    const cx = x + size / 2;
+    const cy = y + size / 2;
+    const r = size / 2;
+    doc.setDrawColor(255, 255, 255);
+    doc.setFillColor(255, 255, 255);
+    doc.setLineWidth(0.4);
+    // Outer ring
+    doc.circle(cx, cy, r * 0.85, 'S');
+    // Middle ring
+    doc.circle(cx, cy, r * 0.55, 'S');
+    // Inner filled dot
+    doc.circle(cx, cy, r * 0.18, 'F');
+    // Crosshair lines (with gap at centre)
+    const gap = r * 0.25;
+    doc.line(cx - r * 0.85, cy, cx - gap, cy); // left
+    doc.line(cx + gap, cy, cx + r * 0.85, cy); // right
+    doc.line(cx, cy - r * 0.85, cx, cy - gap); // top
+    doc.line(cx, cy + gap, cx, cy + r * 0.85); // bottom
+    // Small arrow tick at top-right (mimics the SVG's arrow element)
+    doc.line(cx + r * 0.5, cy - r * 0.5, cx + r * 0.75, cy - r * 0.75);
+    doc.line(cx + r * 0.75, cy - r * 0.75, cx + r * 0.75, cy - r * 0.5);
+    doc.line(cx + r * 0.75, cy - r * 0.75, cx + r * 0.5, cy - r * 0.75);
+  };
 
   const now = new Date();
   const dateStr = `${String(now.getDate()).padStart(2, '0')}.${String(now.getMonth() + 1).padStart(2, '0')}.${now.getFullYear()}`;
@@ -212,14 +221,7 @@ export const generateDataPdfReport = async (
   const iconSize = 10;
   const iconX = (isHe ? margin + 12 : margin + contentWidth - 12) - iconSize / 2;
   const iconY = currentY + (heroHeight - iconSize) / 2;
-  if (heroIconB64) {
-    doc.addImage(heroIconB64, heroIconFormat, iconX, iconY, iconSize, iconSize, undefined, 'FAST');
-  } else {
-    const icx = isHe ? margin + 12 : margin + contentWidth - 12;
-    doc.setDrawColor(255, 255, 255); doc.setLineWidth(0.4);
-    doc.circle(icx, currentY + 12, 4.5, 'S'); doc.circle(icx, currentY + 12, 1.8, 'S');
-  }
-  const heroTextX = isHe ? margin + contentWidth - 10 : margin + 10;
+  drawHeroIcon(iconX, iconY, iconSize);  const heroTextX = isHe ? margin + contentWidth - 10 : margin + 10;
   doc.setFontSize(7.5); doc.setTextColor(190, 215, 250);
   doc.text(isHe ? fixHebrewRTL('רדיוס מעגל פגיעה [CEP 50%]') : 'CEP 50% Radius', heroTextX, currentY + 6.5, { align: isHe ? 'right' : 'left' });
   doc.setFontSize(12); doc.setTextColor(255, 255, 255);
