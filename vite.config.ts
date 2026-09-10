@@ -7,6 +7,8 @@ export default defineConfig(({ command }) => ({
   // Local file:// and USB deployments use relative paths.
   base: command === 'build' ? '/cep-analyzer-web/' : './',
   server: { host: true },
-  plugins: [react(), mkcert()],
+  // mkcert only runs in dev — it generates local HTTPS certs for camera API.
+  // Never runs during `vite build` so CI doesn't try to create certificates.
+  plugins: command === 'build' ? [react()] : [react(), mkcert()],
   build: { assetsInlineLimit: 0, sourcemap: false },
 }))
